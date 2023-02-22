@@ -13,6 +13,7 @@ def yes_no(question):
 
 # main routine goes here
 
+
 want_instructions = yes_no("Do you want to see the instructions? ")
 
 if want_instructions == "yes":
