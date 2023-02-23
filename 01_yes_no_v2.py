@@ -11,8 +11,8 @@ def yes_no(question):
         else:
             print("Please enter yes or no")
 
-# main routine goes here
 
+# main routine goes here
 want_instructions = yes_no("Do you want to see the instructions? ")
 
 if want_instructions == "yes":
