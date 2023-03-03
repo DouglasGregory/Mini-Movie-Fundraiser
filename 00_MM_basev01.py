@@ -96,7 +96,7 @@ while ticket_sold < MAX_TICKETS:
     # calculate ticket cost
     ticket_cost = calc_ticket_price(age)
     print("Age: {}, Ticket Price: ${:.2f}".format(age, ticket_cost))
-    
+
     ticket_sold += 1
 
 # output number of tickets sold
