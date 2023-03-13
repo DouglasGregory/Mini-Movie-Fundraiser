@@ -1,6 +1,10 @@
+import pandas
+
 # functions go here
 
 # checks user has entered yes / no toa question
+
+
 def yes_no(question):
 
     while True:
@@ -105,3 +109,31 @@ if ticket_sold == MAX_TICKETS:
 else:
     print("you have sold {} ticket/s.  There is {} ticket/s "
           "remaining".format(ticket_sold, MAX_TICKETS - ticket_sold))
+
+
+def string_checker(question, num_letters, valid_responses):
+
+    error = "please choose {} or {}".format(valid_responses[0],
+                                            valid_responses[1])
+
+    while True:
+
+        response = input(question).lower()
+
+        for item in valid_responses:
+            if response == item[:num_letters] or response == item:
+                return item
+
+        print(error)
+
+
+# dictionaries to hold ticket details
+all_names = ["a", "b", "c", "d", "e"]
+all_ticket_costs = [7.50, 7.50, 10.50, 10.50, 6.50]
+surcharge = [0, 0, 0.53, 0.53, 0]
+
+mini_movie_dict = {
+    "Name": all_names,
+    "Ticket Price": all_ticket_costs,
+    "Surcharge": surcharge,
+}

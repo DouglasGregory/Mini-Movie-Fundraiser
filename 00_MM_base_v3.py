@@ -3,10 +3,9 @@ import random
 
 # functions go here
 
-# Checks user has entered yes / no to a question\
-
 
 def yes_no(question):
+
     while True:
         response = input(question).lower()
 
@@ -41,11 +40,8 @@ def not_blank(question):
         else:
             return response
 
-# main routine starts here
 
-# Calculate the ticket price based on the age
-
-
+# calculate the ticket price based on the age
 def calc_ticket_price(var_age):
 
     # ticket is $7:50 for users under 16
@@ -83,14 +79,36 @@ def string_checker(question, num_letters, valid_responses):
 
         print("please enter a valid Response")
 
+
+# currency formatting function
+def currency(x):
+    return f"{x:.2f}"
+    # return "${:.2f}".format(x)
+
+
 # set maximum number of tickets below
 
 
-MAX_TICKETS = 3
+MAX_TICKETS = 5
 tickets_sold = 0
 
 yes_no_list = ["yes", "no"]
 payment_list = ["cash", "credit"]
+
+# dictionaries to hold ticket details
+all_names = ["a", "b", "c", "d", "e"]
+all_ticket_costs = [7.50, 7.50, 10.50, 10.50, 6.50]
+surcharge = [0, 0, 0.53, 0.53, 0]
+
+
+mini_movie_dict = {
+    "Name": all_names,
+    "Ticket Price": all_ticket_costs,
+    "Surcharge": surcharge
+}
+
+mini_movie_frame = pandas.DataFrame(mini_movie_dict)
+mini_movie_frame = mini_movie_frame.set_index('Name')
 
 # Ask user if they want to see the instructions
 want_instructions = string_checker("Do you want to read the "
@@ -126,10 +144,6 @@ while tickets_sold < MAX_TICKETS:
                                 "credit): ",
                                 2, payment_list)
     tickets_sold += 1
-
-
-# Output number of tickets sold
-
 
 if tickets_sold == MAX_TICKETS:
     print("Congratulations you have sold all the tickets")
