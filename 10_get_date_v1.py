@@ -1,10 +1,16 @@
-from datetime import datetime
+from datetime import date
+# get today's date
+today = date.today()
 
-# datetime object containing current date and time
-now = datetime.now()
+# get day, month and year as individual strings
+day = today.strftime("%d")
+month = today.strftime("%m")
+year = today.strftime("%Y")
 
-print("now =", now)
+heading = "the current date is {}/{}/{}".format(day, month, year)
+filename = "MMF_{}_{}_{}".format(year, month, day)
 
-# dd/mm/YY H:M:S
-dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-print("date and time =", dt_string)
+# heading
+print(heading)
+print("The filename will be {}.txt".format(filename))
+
