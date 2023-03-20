@@ -1,8 +1,9 @@
 import pandas
 import random
-
+from datetime import date
 
 # functions go here
+
 
 # checks users enter an integer to a given question
 def num_check(question):
@@ -201,3 +202,17 @@ if tickets_sold == MAX_TICKETS:
 else:
     print("You have sold {} ticket/s.  There is {} ticket/s "
           "remaining".format(tickets_sold, MAX_TICKETS - tickets_sold))
+
+
+# calculate ticket and profit totals
+total = mini_movie_frame['Total'].sum()
+profit = mini_movie_frame['Profit'].sum()
+
+
+# choose winner and look up total won
+winner_name = random.choice(all_names)
+win_index = all_names.index(winner_name)
+total_won = mini_movie_frame.at[win_index, 'Total']
+
+# get today's date
+today = date.today()
